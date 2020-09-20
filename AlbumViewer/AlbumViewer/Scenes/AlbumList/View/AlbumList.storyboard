@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9Kr-NT-JVK">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Album List View Controller-->
+        <scene sceneID="gI8-4X-LPb">
+            <objects>
+                <viewController storyboardIdentifier="AlbumListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9Kr-NT-JVK" customClass="AlbumListViewController" customModule="AlbumViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2T3-Vi-1gC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Wtw-T4-sVN">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="9Kr-NT-JVK" id="O0c-nW-Pxo"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oLk-3q-l2a">
+                                <rect key="frame" x="0.0" y="100" width="414" height="762"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="AlbumListTableViewCell" rowHeight="150" id="auR-mK-qUJ" customClass="AlbumListTableViewCell" customModule="AlbumViewer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="150"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="auR-mK-qUJ" id="EDh-PS-sNq">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="fa5-Zc-OBq">
+                                                    <rect key="frame" x="16" y="8" width="351" height="134"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="YIS-5q-TXE">
+                                                            <rect key="frame" x="0.0" y="57" width="351" height="20.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ts-N4-Nbh">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="351" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="fa5-Zc-OBq" secondAttribute="trailing" constant="16" id="8dk-x8-1qR"/>
+                                                <constraint firstItem="fa5-Zc-OBq" firstAttribute="leading" secondItem="EDh-PS-sNq" secondAttribute="leading" constant="16" id="dIV-OE-DLY"/>
+                                                <constraint firstAttribute="bottom" secondItem="fa5-Zc-OBq" secondAttribute="bottom" constant="8" id="h6Q-v8-ATc"/>
+                                                <constraint firstItem="fa5-Zc-OBq" firstAttribute="top" secondItem="EDh-PS-sNq" secondAttribute="top" constant="8" id="nAe-2z-BLr"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="albumTitleLabel" destination="2ts-N4-Nbh" id="khg-Zc-FWr"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="9Kr-NT-JVK" id="SSd-iG-Olr"/>
+                                    <outlet property="delegate" destination="9Kr-NT-JVK" id="ZcH-Ic-NCf"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RY0-Zf-2ge"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oLk-3q-l2a" firstAttribute="top" secondItem="Wtw-T4-sVN" secondAttribute="bottom" id="2d5-dn-pJr"/>
+                            <constraint firstItem="oLk-3q-l2a" firstAttribute="trailing" secondItem="RY0-Zf-2ge" secondAttribute="trailing" id="4YH-Ea-7tV"/>
+                            <constraint firstItem="oLk-3q-l2a" firstAttribute="bottom" secondItem="RY0-Zf-2ge" secondAttribute="bottom" id="CCS-15-srT"/>
+                            <constraint firstItem="Wtw-T4-sVN" firstAttribute="trailing" secondItem="RY0-Zf-2ge" secondAttribute="trailing" id="hqa-aT-QkV"/>
+                            <constraint firstItem="Wtw-T4-sVN" firstAttribute="leading" secondItem="RY0-Zf-2ge" secondAttribute="leading" id="ku4-st-kXJ"/>
+                            <constraint firstItem="Wtw-T4-sVN" firstAttribute="top" secondItem="RY0-Zf-2ge" secondAttribute="top" id="xTP-gg-8fY"/>
+                            <constraint firstItem="oLk-3q-l2a" firstAttribute="leading" secondItem="RY0-Zf-2ge" secondAttribute="leading" id="xn0-Ay-XLe"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="albumListTableView" destination="oLk-3q-l2a" id="o1C-vn-d71"/>
+                        <outlet property="albumSearchBar" destination="Wtw-T4-sVN" id="2vr-Zd-G0Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ncI-0X-ia4" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-565.21739130434787" y="77.678571428571431"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
