@@ -7,14 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7CA1A772251640600070B537 /* PListAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA1A771251640600070B537 /* PListAccessor.swift */; };
 		7CB25EC02515D45A0053401E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB25EBF2515D45A0053401E /* AppDelegate.swift */; };
 		7CB25EC22515D45A0053401E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB25EC12515D45A0053401E /* SceneDelegate.swift */; };
-		7CB25EC42515D45A0053401E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB25EC32515D45A0053401E /* ViewController.swift */; };
-		7CB25EC72515D45A0053401E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB25EC52515D45A0053401E /* Main.storyboard */; };
+		7CB25EC42515D45A0053401E /* AlbumListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB25EC32515D45A0053401E /* AlbumListViewController.swift */; };
 		7CB25EC92515D45E0053401E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CB25EC82515D45E0053401E /* Assets.xcassets */; };
 		7CB25ECC2515D45E0053401E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB25ECA2515D45E0053401E /* LaunchScreen.storyboard */; };
 		7CB25ED72515D45E0053401E /* AlbumViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB25ED62515D45E0053401E /* AlbumViewerTests.swift */; };
 		7CB25EE22515D45E0053401E /* AlbumViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB25EE12515D45E0053401E /* AlbumViewerUITests.swift */; };
+		7CB25EFF2515DB570053401E /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB25EFE2515DB570053401E /* APIHandler.swift */; };
+		7CB25F072515E8B00053401E /* AlbumsNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB25F062515E8B00053401E /* AlbumsNetworkController.swift */; };
+		7CB25F0F2515E9320053401E /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB25F0E2515E9320053401E /* ImageCache.swift */; };
+		7CB25F3B2515EC520053401E /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB25F3A2515EC520053401E /* Album.swift */; };
+		7CB25F492515F4150053401E /* AlbumListInterector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB25F482515F4150053401E /* AlbumListInterector.swift */; };
+		7CB25F4E2515F4C30053401E /* AlbumListInteractorBoundaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB25F4D2515F4C30053401E /* AlbumListInteractorBoundaries.swift */; };
+		7CB25F592515F5C40053401E /* AlbumList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB25F582515F5C40053401E /* AlbumList.storyboard */; };
+		7CB25F612515F9280053401E /* AlbumListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB25F602515F9280053401E /* AlbumListTableViewCell.swift */; };
+		7CB25F6925160D520053401E /* AlbumImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB25F6825160D520053401E /* AlbumImageView.swift */; };
+		7CB25F6E2516120A0053401E /* AlbumListViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB25F6D2516120A0053401E /* AlbumListViewFactory.swift */; };
+		7CB25F76251612510053401E /* AlbumListViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB25F75251612510053401E /* AlbumListViewPresenter.swift */; };
+		7CB25F7B251612A50053401E /* AlbumListViewPresenterBoundaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB25F7A251612A50053401E /* AlbumListViewPresenterBoundaries.swift */; };
+		7CE8057825166978006F43A1 /* String+AlbumViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE8057725166978006F43A1 /* String+AlbumViewer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,11 +48,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7CA1A771251640600070B537 /* PListAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PListAccessor.swift; sourceTree = "<group>"; };
 		7CB25EBC2515D45A0053401E /* AlbumViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlbumViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CB25EBF2515D45A0053401E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CB25EC12515D45A0053401E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7CB25EC32515D45A0053401E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7CB25EC62515D45A0053401E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7CB25EC32515D45A0053401E /* AlbumListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListViewController.swift; sourceTree = "<group>"; };
 		7CB25EC82515D45E0053401E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CB25ECB2515D45E0053401E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CB25ECD2515D45E0053401E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +62,19 @@
 		7CB25EDD2515D45E0053401E /* AlbumViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlbumViewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CB25EE12515D45E0053401E /* AlbumViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewerUITests.swift; sourceTree = "<group>"; };
 		7CB25EE32515D45E0053401E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CB25EFE2515DB570053401E /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
+		7CB25F062515E8B00053401E /* AlbumsNetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsNetworkController.swift; sourceTree = "<group>"; };
+		7CB25F0E2515E9320053401E /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		7CB25F3A2515EC520053401E /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		7CB25F482515F4150053401E /* AlbumListInterector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListInterector.swift; sourceTree = "<group>"; };
+		7CB25F4D2515F4C30053401E /* AlbumListInteractorBoundaries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListInteractorBoundaries.swift; sourceTree = "<group>"; };
+		7CB25F582515F5C40053401E /* AlbumList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlbumList.storyboard; sourceTree = "<group>"; };
+		7CB25F602515F9280053401E /* AlbumListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListTableViewCell.swift; sourceTree = "<group>"; };
+		7CB25F6825160D520053401E /* AlbumImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumImageView.swift; sourceTree = "<group>"; };
+		7CB25F6D2516120A0053401E /* AlbumListViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListViewFactory.swift; sourceTree = "<group>"; };
+		7CB25F75251612510053401E /* AlbumListViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListViewPresenter.swift; sourceTree = "<group>"; };
+		7CB25F7A251612A50053401E /* AlbumListViewPresenterBoundaries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListViewPresenterBoundaries.swift; sourceTree = "<group>"; };
+		7CE8057725166978006F43A1 /* String+AlbumViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+AlbumViewer.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +127,14 @@
 			children = (
 				7CB25EBF2515D45A0053401E /* AppDelegate.swift */,
 				7CB25EC12515D45A0053401E /* SceneDelegate.swift */,
-				7CB25EC32515D45A0053401E /* ViewController.swift */,
-				7CB25EC52515D45A0053401E /* Main.storyboard */,
+				7CB25EF42515D8D00053401E /* Scenes */,
+				7CB25F062515E8B00053401E /* AlbumsNetworkController.swift */,
+				7CB25EF82515D9A00053401E /* Services */,
+				7CB25EF92515D9B30053401E /* Models */,
+				7CB25EFA2515D9C60053401E /* Common */,
+				7CB25EFB2515D9D80053401E /* Helpers */,
+				7CB25EFC2515D9E50053401E /* Extensions */,
+				7CB25EFD2515D9FD0053401E /* Resources */,
 				7CB25EC82515D45E0053401E /* Assets.xcassets */,
 				7CB25ECA2515D45E0053401E /* LaunchScreen.storyboard */,
 				7CB25ECD2515D45E0053401E /* Info.plist */,
@@ -126,6 +158,109 @@
 				7CB25EE32515D45E0053401E /* Info.plist */,
 			);
 			path = AlbumViewerUITests;
+			sourceTree = "<group>";
+		};
+		7CB25EF42515D8D00053401E /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				7CB25F532515F4FA0053401E /* AlbumList */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		7CB25EF62515D97E0053401E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7CB25F602515F9280053401E /* AlbumListTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		7CB25EF72515D9860053401E /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				7CB25F482515F4150053401E /* AlbumListInterector.swift */,
+				7CB25F4D2515F4C30053401E /* AlbumListInteractorBoundaries.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		7CB25EF82515D9A00053401E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				7CB25EFE2515DB570053401E /* APIHandler.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		7CB25EF92515D9B30053401E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7CB25F3A2515EC520053401E /* Album.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7CB25EFA2515D9C60053401E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				7CB25F6825160D520053401E /* AlbumImageView.swift */,
+				7CA1A771251640600070B537 /* PListAccessor.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		7CB25EFB2515D9D80053401E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7CB25F0E2515E9320053401E /* ImageCache.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		7CB25EFC2515D9E50053401E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7CE8057725166978006F43A1 /* String+AlbumViewer.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7CB25EFD2515D9FD0053401E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7CB25F522515F4DF0053401E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				7CB25F75251612510053401E /* AlbumListViewPresenter.swift */,
+				7CB25F7A251612A50053401E /* AlbumListViewPresenterBoundaries.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		7CB25F532515F4FA0053401E /* AlbumList */ = {
+			isa = PBXGroup;
+			children = (
+				7CB25F572515F5310053401E /* View */,
+				7CB25EF62515D97E0053401E /* Cells */,
+				7CB25EF72515D9860053401E /* Interactor */,
+				7CB25F522515F4DF0053401E /* Presenter */,
+				7CB25F6D2516120A0053401E /* AlbumListViewFactory.swift */,
+			);
+			path = AlbumList;
+			sourceTree = "<group>";
+		};
+		7CB25F572515F5310053401E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7CB25EC32515D45A0053401E /* AlbumListViewController.swift */,
+				7CB25F582515F5C40053401E /* AlbumList.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,9 +366,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CB25F592515F5C40053401E /* AlbumList.storyboard in Resources */,
 				7CB25ECC2515D45E0053401E /* LaunchScreen.storyboard in Resources */,
 				7CB25EC92515D45E0053401E /* Assets.xcassets in Resources */,
-				7CB25EC72515D45A0053401E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +393,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CB25EC42515D45A0053401E /* ViewController.swift in Sources */,
+				7CB25F492515F4150053401E /* AlbumListInterector.swift in Sources */,
+				7CB25F6925160D520053401E /* AlbumImageView.swift in Sources */,
+				7CB25F0F2515E9320053401E /* ImageCache.swift in Sources */,
+				7CB25F76251612510053401E /* AlbumListViewPresenter.swift in Sources */,
+				7CB25EC42515D45A0053401E /* AlbumListViewController.swift in Sources */,
 				7CB25EC02515D45A0053401E /* AppDelegate.swift in Sources */,
+				7CB25F072515E8B00053401E /* AlbumsNetworkController.swift in Sources */,
+				7CB25F7B251612A50053401E /* AlbumListViewPresenterBoundaries.swift in Sources */,
+				7CE8057825166978006F43A1 /* String+AlbumViewer.swift in Sources */,
 				7CB25EC22515D45A0053401E /* SceneDelegate.swift in Sources */,
+				7CB25F3B2515EC520053401E /* Album.swift in Sources */,
+				7CA1A772251640600070B537 /* PListAccessor.swift in Sources */,
+				7CB25F4E2515F4C30053401E /* AlbumListInteractorBoundaries.swift in Sources */,
+				7CB25EFF2515DB570053401E /* APIHandler.swift in Sources */,
+				7CB25F6E2516120A0053401E /* AlbumListViewFactory.swift in Sources */,
+				7CB25F612515F9280053401E /* AlbumListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +444,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7CB25EC52515D45A0053401E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7CB25EC62515D45A0053401E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7CB25ECA2515D45E0053401E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
