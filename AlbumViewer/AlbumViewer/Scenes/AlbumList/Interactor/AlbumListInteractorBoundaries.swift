@@ -9,6 +9,7 @@ import Foundation
 
 protocol AlbumListViewInteractorInput {
     func fetchAlbumList()
+    func fetchAlbumListContainsText(searchedText: String)
 }
 
 protocol AlbumListViewInteractorOutput {
