@@ -18,14 +18,12 @@ class AlbumListTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     
     func setupAlbumView(album: Album) {
         if let albumTitle = album.title {
-            albumTitleLabel?.text = "Album: \(albumTitle)"
+            albumTitleLabel?.text = "\(albumTitle)"
         }
     }
-
 }
