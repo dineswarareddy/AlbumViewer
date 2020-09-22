@@ -9,4 +9,8 @@ import Foundation
 
 protocol AlbumListViewPresenterOutput {
     func displayAlbumList(albums: [Album])
+    func displayNoAlbumsFoundMessage(message: String)
+    func removeNoAlbumsMessageLabel()
+    func displaActivityIndicator()
+    func removeActivityIndicator()
 }

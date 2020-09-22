@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class AlbumListInteractor {
     let output: AlbumListViewInteractorOutput
@@ -25,8 +26,14 @@ class AlbumListInteractor {
 }
 
 extension AlbumListInteractor: AlbumListViewInteractorInput {
+    func albumSelected(dataToPass: Any?, segue: UIStoryboardSegue?) {
+        output.displayAlbumDetails(dataToPass: dataToPass, segue: segue)
+    }
+    
     func fetchAlbumList() {
+        output.showActivityIndicator()
         network?.fetchAlbums(completionHandler: { [weak self] (albumList, error) -> (Void) in
+            self?.output.hideActivityIndicator()
             if let albums = albumList {
                 self?.albumsArray = albums
                 self?.updateAlbumListToPresent(albumList: albums)

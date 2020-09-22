@@ -11,6 +11,7 @@ import UIKit
 class AlbumListViewPresenter {
     var view: AlbumListViewPresenterOutput?
     var router: AlbumListRouterDelegate?
+    let noAlbumsMessage = "No albums found"
     
     init(view: AlbumListViewPresenterOutput?) {
         self.view = view
@@ -19,11 +20,24 @@ class AlbumListViewPresenter {
 }
 
 extension AlbumListViewPresenter: AlbumListViewInteractorOutput {
+    func showActivityIndicator() {
+        view?.displaActivityIndicator()
+    }
+    
+    func hideActivityIndicator() {
+        view?.removeActivityIndicator()
+    }
+
     func updateAlbumList(albums: [Album]) {
+        if albums.isEmpty == true {
+            view?.displayNoAlbumsFoundMessage(message: noAlbumsMessage)
+        } else {
+            view?.removeNoAlbumsMessageLabel()
+        }
         view?.displayAlbumList(albums: albums)
     }
     
-    func displayAlbumDetails(albumId: Int, segue: UIStoryboardSegue?) {
-        router?.passDataToNextScene(segue: segue)
+    func displayAlbumDetails(dataToPass: Any?, segue: UIStoryboardSegue?) {
+        router?.passDataToNextScene(segue: segue, dataToPass: dataToPass)
     }
 }

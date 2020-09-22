@@ -11,9 +11,12 @@ import UIKit
 protocol AlbumListViewInteractorInput {
     func fetchAlbumList()
     func fetchAlbumListContainsText(searchedText: String)
+    func albumSelected(dataToPass: Any?, segue: UIStoryboardSegue?)
 }
 
 protocol AlbumListViewInteractorOutput {
     func updateAlbumList(albums: [Album])
-    func displayAlbumDetails(albumId: Int, segue: UIStoryboardSegue?)
+    func displayAlbumDetails(dataToPass: Any?, segue: UIStoryboardSegue?)
+    func showActivityIndicator()
+    func hideActivityIndicator()
 }

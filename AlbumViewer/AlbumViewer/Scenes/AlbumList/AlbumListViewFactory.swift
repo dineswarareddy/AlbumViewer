@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum AlbumListViewFactory {
     static func createAlbumsViewFactory(view: AlbumListViewPresenterOutput?) -> AlbumListViewInteractorInput {
@@ -15,5 +16,17 @@ enum AlbumListViewFactory {
         let router = AlbumListRouter()
         presenter.router = router
         return interactor
+    }
+}
+
+extension AlbumListViewController {
+    private struct Constants {
+        static let photosSegue = "AlbumPhotosSegue"
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.photosSegue {
+            interactor?.albumSelected(dataToPass: sender, segue: segue)
+        }
     }
 }
