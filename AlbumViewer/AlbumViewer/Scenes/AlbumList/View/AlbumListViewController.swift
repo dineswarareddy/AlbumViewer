@@ -17,7 +17,7 @@ class AlbumListViewController: UIViewController {
     var interactor: AlbumListViewInteractorInput?
     @IBOutlet weak var albumListTableView: UITableView?
     @IBOutlet weak var albumSearchBar: UISearchBar?
-    var albumId: Int?
+    var selectedAlbum: Album?
     private var albumList: [Album] = []
     
     override func viewDidLoad() {
@@ -50,6 +50,7 @@ extension AlbumListViewController: AlbumListViewPresenterOutput {
 
 extension AlbumListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedAlbum = albumList[indexPath.row]
         performSegue(withIdentifier: Constants.photosSegue, sender: nil)
     }
 }
@@ -77,8 +78,8 @@ extension AlbumListViewController: UISearchBarDelegate {
 extension AlbumListViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let photosView = segue.destination as? PhotosListViewController {
-            if let selectedAlbumId = albumId {
-                photosView.albumId = selectedAlbumId
+            if let selectedAlbum = selectedAlbum {
+                photosView.selectedAlbum = selectedAlbum
             }
         }
     }
