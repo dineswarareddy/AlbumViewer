@@ -12,12 +12,6 @@ protocol AlbumListRouterDelegate {
     func passDataToNextScene(segue: UIStoryboardSegue?, dataToPass: Any?)
 }
 
-protocol AlbumDetailsDataStore
-{
-  var selectedAlbum: Album? { get set }
-}
-
-
 class AlbumListRouter
 {
     // MARK: - Life cycle
