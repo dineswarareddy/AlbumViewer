@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol AlbumListViewInteractorInput {
     func fetchAlbumList()
@@ -14,4 +15,5 @@ protocol AlbumListViewInteractorInput {
 
 protocol AlbumListViewInteractorOutput {
     func updateAlbumList(albums: [Album])
+    func displayAlbumDetails(albumId: Int, segue: UIStoryboardSegue?)
 }

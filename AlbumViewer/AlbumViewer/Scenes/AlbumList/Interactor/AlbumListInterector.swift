@@ -17,17 +17,6 @@ class AlbumListInteractor {
         self.network = networkController
     }
     
-//    private func groupAlbumsById(_ albumArray: [Album]) {
-//        var groupedarray: [[Album]]? = []
-//        let uniqueIdSet = Set(albumArray.map{ $0.albumId}).sorted(by: {$0 < $1})
-//        uniqueIdSet.forEach{ id in
-//            groupedarray?.append(albumArray.filter{ $0.albumId == id })
-//        }
-//        if let groupByAlbumIdArray = groupedarray {
-//            output.updateAlbumList(albums: groupByAlbumIdArray)
-//        }
-//    }
-    
     private func updateAlbumListToPresent(albumList: [Album]?) {
         if let albums = albumList {
             self.output.updateAlbumList(albums: albums)

@@ -7,9 +7,6 @@
 
 import Foundation
 
-protocol AlbumListViewPresenterInput {
-}
-
 protocol AlbumListViewPresenterOutput {
     func displayAlbumList(albums: [Album])
 }
