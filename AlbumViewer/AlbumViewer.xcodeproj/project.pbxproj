@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C8CD1A5251A0FC10056CE52 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CD1A4251A0FC10056CE52 /* BaseViewController.swift */; };
 		7CA1A772251640600070B537 /* PListAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA1A771251640600070B537 /* PListAccessor.swift */; };
 		7CA8865E2517B70700CFFEC2 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA8865D2517B70700CFFEC2 /* Photo.swift */; };
 		7CB25EC02515D45A0053401E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB25EBF2515D45A0053401E /* AppDelegate.swift */; };
@@ -59,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7C8CD1A4251A0FC10056CE52 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		7CA1A771251640600070B537 /* PListAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PListAccessor.swift; sourceTree = "<group>"; };
 		7CA8865D2517B70700CFFEC2 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		7CB25EBC2515D45A0053401E /* AlbumViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlbumViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -238,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				7CB25F0E2515E9320053401E /* ImageCache.swift */,
+				7C8CD1A4251A0FC10056CE52 /* BaseViewController.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				7CE8058E251773C3006F43A1 /* PhotosListViewController.swift in Sources */,
 				7CB25F492515F4150053401E /* AlbumListInterector.swift in Sources */,
 				7CB25F6925160D520053401E /* AlbumImageView.swift in Sources */,
+				7C8CD1A5251A0FC10056CE52 /* BaseViewController.swift in Sources */,
 				7CB25F0F2515E9320053401E /* ImageCache.swift in Sources */,
 				7CA8865E2517B70700CFFEC2 /* Photo.swift in Sources */,
 				7CE805BD2517914A006F43A1 /* PhotoCollectionViewCell.swift in Sources */,
