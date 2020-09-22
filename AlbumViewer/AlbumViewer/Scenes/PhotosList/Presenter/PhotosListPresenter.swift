@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
 class PhotosListPresenter {
     let noPhotosMessage = "No photos under this album"
+    var router: PhotosListRouterDelegate?
     var view: PhotosListPresenterOutput?
-//    var router: PhotosListRouterDelegate?
     
     init(view: PhotosListPresenterOutput?) {
         self.view = view
@@ -39,5 +40,9 @@ extension PhotosListPresenter: PhotosListInteractorOutput {
     func updateError(error: Error) {
         // Handle error here and pass error based message to view
         view?.displayError(message: error.localizedDescription)
+    }
+    
+    func displayPhotoDetails(dataToPass: Any?, segue: UIStoryboardSegue?) {
+        router?.passDataToNextScene(segue: segue, dataToPass: dataToPass)
     }
 }

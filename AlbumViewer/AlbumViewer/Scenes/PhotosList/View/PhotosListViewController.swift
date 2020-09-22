@@ -9,7 +9,10 @@ import UIKit
 
 class PhotosListViewController: BaseViewController {
     var selectedAlbum: Album?
-    let photoCellIdentifier = "PhotoCollectionViewCell"
+    private struct Constants {
+        static let photoCellIdentifier = "PhotoCollectionViewCell"
+        static let photoPresentSegue = "PresentPhotoSegue"
+    }
     @IBOutlet weak var photosCollectionView: UICollectionView?
     var interactor: PhotosListInteractorInput?
     private var photosToPresent: [Photo] = [] {
@@ -64,7 +67,9 @@ class PhotosListViewController: BaseViewController {
 }
 
 extension PhotosListViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: Constants.photoPresentSegue, sender: photosToPresent[indexPath.item])
+    }
 }
 
 extension PhotosListViewController: UICollectionViewDataSource {
@@ -73,7 +78,7 @@ extension PhotosListViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let photoDisplayCell = collectionView.dequeueReusableCell(withReuseIdentifier: photoCellIdentifier, for: indexPath) as? PhotoCollectionViewCell else {
+        guard let photoDisplayCell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.photoCellIdentifier, for: indexPath) as? PhotoCollectionViewCell else {
             return UICollectionViewCell()
         }
         photoDisplayCell.setupPhotoView(photo: photosToPresent[indexPath.item])

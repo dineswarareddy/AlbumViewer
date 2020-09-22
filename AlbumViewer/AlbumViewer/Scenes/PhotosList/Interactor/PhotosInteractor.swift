@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class PhotosListInteractor {
     
@@ -36,5 +37,9 @@ extension PhotosListInteractor: PhotosListInteractorInput {
             }
             self?.output.updateError(error: error)
         })
+    }
+    
+    func photoSelected(dataToPass: Any?, segue: UIStoryboardSegue?) {
+        output.displayPhotoDetails(dataToPass: dataToPass, segue: segue)
     }
 }
