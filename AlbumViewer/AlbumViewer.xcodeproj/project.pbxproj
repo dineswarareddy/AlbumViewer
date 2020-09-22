@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C674688251A32430092B2C6 /* PhotoPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C674687251A32420092B2C6 /* PhotoPreviewViewController.swift */; };
 		7C8CD1A5251A0FC10056CE52 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CD1A4251A0FC10056CE52 /* BaseViewController.swift */; };
 		7CA1A772251640600070B537 /* PListAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA1A771251640600070B537 /* PListAccessor.swift */; };
 		7CA8865E2517B70700CFFEC2 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA8865D2517B70700CFFEC2 /* Photo.swift */; };
@@ -60,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7C674687251A32420092B2C6 /* PhotoPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreviewViewController.swift; sourceTree = "<group>"; };
 		7C8CD1A4251A0FC10056CE52 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		7CA1A771251640600070B537 /* PListAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PListAccessor.swift; sourceTree = "<group>"; };
 		7CA8865D2517B70700CFFEC2 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
@@ -126,6 +128,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C674686251A320F0092B2C6 /* PhotoPreviewView */ = {
+			isa = PBXGroup;
+			children = (
+				7C674687251A32420092B2C6 /* PhotoPreviewViewController.swift */,
+			);
+			path = PhotoPreviewView;
+			sourceTree = "<group>";
+		};
 		7CB25EB32515D45A0053401E = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				7CB25F532515F4FA0053401E /* AlbumList */,
+				7C674686251A320F0092B2C6 /* PhotoPreviewView */,
 				7CE8058C251773A4006F43A1 /* PhotosList */,
 			);
 			path = Scenes;
@@ -470,6 +481,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C674688251A32430092B2C6 /* PhotoPreviewViewController.swift in Sources */,
 				7CE80586251769BC006F43A1 /* AlbumListRouter.swift in Sources */,
 				7CE805AE251790E1006F43A1 /* PhotosListPresenterBoundaries.swift in Sources */,
 				7CE8058E251773C3006F43A1 /* PhotosListViewController.swift in Sources */,
