@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Y1b-Vx-Ld5">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="20" y="44" width="374" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qt8-HM-jEC">
                                     <size key="itemSize" width="128" height="128"/>
@@ -34,7 +34,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xyF-5s-kpM" customClass="AlbumImageView" customModule="AlbumViewer" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xyF-5s-kpM" customClass="AlbumImageView" customModule="AlbumViewer" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                 </imageView>
                                             </subviews>
@@ -59,8 +59,8 @@
                         <viewLayoutGuide key="safeArea" id="Rer-kj-bGE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Rer-kj-bGE" firstAttribute="trailing" secondItem="Y1b-Vx-Ld5" secondAttribute="trailing" id="7Qe-Kj-gHG"/>
-                            <constraint firstItem="Y1b-Vx-Ld5" firstAttribute="leading" secondItem="Rer-kj-bGE" secondAttribute="leading" id="7eC-LH-ivO"/>
+                            <constraint firstItem="Rer-kj-bGE" firstAttribute="trailing" secondItem="Y1b-Vx-Ld5" secondAttribute="trailing" constant="20" id="7Qe-Kj-gHG"/>
+                            <constraint firstItem="Y1b-Vx-Ld5" firstAttribute="leading" secondItem="Rer-kj-bGE" secondAttribute="leading" constant="20" id="7eC-LH-ivO"/>
                             <constraint firstItem="Y1b-Vx-Ld5" firstAttribute="top" secondItem="Rer-kj-bGE" secondAttribute="top" id="rWg-0c-urJ"/>
                             <constraint firstItem="Rer-kj-bGE" firstAttribute="bottom" secondItem="Y1b-Vx-Ld5" secondAttribute="bottom" id="uMy-UM-qyQ"/>
                         </constraints>

@@ -17,13 +17,21 @@ class PhotosListInteractor {
         self.output = presenter
         self.network = networkController
     }
+    
+    private func updatePhotosListToPresent(photosList: [Photo]?) {
+        if let photos = photosList {
+            self.output.updatePhotosList(photos: photos)
+        }
+    }
 }
 
 extension PhotosListInteractor: PhotosListInteractorInput {
     func fetchPhots(of album: Album) {
+        output.showActivityIndicator()
         network?.fetchPhotos(of: album.id, completionHandler: { [weak self] (photos, error) -> (Void) in
+            self?.output.hideActivityIndicator()
             guard let error = error else {
-                self?.output.updatePhotosList(photos: photos)
+                self?.updatePhotosListToPresent(photosList: photos)
                 return
             }
             self?.output.updateError(error: error)

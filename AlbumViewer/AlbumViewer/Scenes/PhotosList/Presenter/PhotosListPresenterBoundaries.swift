@@ -11,4 +11,7 @@ protocol PhotosListPresenterOutput {
     func displayPhotos(photos: [Photo])
     func displayNoPhotosMessage(_ message: String)
     func displayError(message: String)
+    func removeNoPhotosMessageLabel()
+    func displaActivityIndicator()
+    func removeActivityIndicator()
 }

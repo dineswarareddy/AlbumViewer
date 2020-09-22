@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PhotosListViewController: UIViewController {
+class PhotosListViewController: BaseViewController {
     var selectedAlbum: Album?
     let photoCellIdentifier = "PhotoCollectionViewCell"
     @IBOutlet weak var photosCollectionView: UICollectionView?
@@ -24,9 +24,7 @@ class PhotosListViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupPhotosListInteractor()
-        if let selectedAlbum = selectedAlbum {
-            fetchPhotos(of: selectedAlbum)
-        }
+        fetchPhotos(of: selectedAlbum)
     }
     
     private func setupUI() {
@@ -39,8 +37,29 @@ class PhotosListViewController: UIViewController {
         interactor = PhotosListViewFactory.createPhotosViewFactory(view: self)
     }
     
-    private func fetchPhotos(of album: Album) {
-        interactor?.fetchPhots(of: album)
+    private func fetchPhotos(of album: Album?) {
+        if let selectedAlbum = album {
+            interactor?.fetchPhots(of: selectedAlbum)
+        }
+    }
+    
+    private func showNoContentsAvailable(message: String) {
+        DispatchQueue.main.asyncAfter(deadline: .now()) { [weak self] in
+            guard let `self` = self else { return }
+            let noDataLabel: UILabel = UILabel(frame: self.view.frame)
+            noDataLabel.text = message
+            noDataLabel.textColor = UIColor.gray
+            noDataLabel.font = .boldSystemFont(ofSize: 14)
+            noDataLabel.textAlignment = .center
+            self.photosCollectionView?.backgroundView = noDataLabel
+            self.photosCollectionView?.backgroundColor = .white
+        }
+    }
+    
+    private func removeNoContentsAvailableLabel() {
+        DispatchQueue.main.asyncAfter(deadline: .now(), execute: { [weak self] in
+            self?.photosCollectionView?.backgroundView = nil
+        })
     }
 }
 
@@ -64,11 +83,24 @@ extension PhotosListViewController: UICollectionViewDataSource {
 
 extension PhotosListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (collectionView.frame.width - 30) * 0.5, height: 110)
+        let itemSize = (collectionView.frame.width - 30) * 0.5
+        return CGSize(width: itemSize, height: itemSize)
     }
 }
 
 extension PhotosListViewController: PhotosListPresenterOutput {
+    func removeNoPhotosMessageLabel() {
+        removeNoContentsAvailableLabel()
+    }
+    
+    func displaActivityIndicator() {
+        self.showActivityIndicator()
+    }
+    
+    func removeActivityIndicator() {
+        self.hideActivityIndicator()
+    }
+    
     func displayError(message: String) {
         // Show error in view
     }
@@ -79,5 +111,7 @@ extension PhotosListViewController: PhotosListPresenterOutput {
     
     func displayNoPhotosMessage(_ message: String) {
         // Show some message to display when there is no photos to dsisplay
+        showNoContentsAvailable(message: message)
     }
+    
 }

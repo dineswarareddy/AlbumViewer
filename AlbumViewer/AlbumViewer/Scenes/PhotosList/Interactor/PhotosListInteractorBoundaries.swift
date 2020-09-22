@@ -12,6 +12,8 @@ protocol PhotosListInteractorInput {
 }
 
 protocol PhotosListInteractorOutput {
-    func updatePhotosList(photos: [Photo]?)
+    func updatePhotosList(photos: [Photo])
     func updateError(error: Error)
+    func showActivityIndicator()
+    func hideActivityIndicator()
 }

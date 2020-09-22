@@ -8,6 +8,7 @@
 import Foundation
 
 class PhotosListPresenter {
+    let noPhotosMessage = "No photos under this album"
     var view: PhotosListPresenterOutput?
 //    var router: PhotosListRouterDelegate?
     
@@ -18,10 +19,21 @@ class PhotosListPresenter {
 }
 
 extension PhotosListPresenter: PhotosListInteractorOutput {
-    func updatePhotosList(photos: [Photo]?) {
-        if let photos = photos {
-            view?.displayPhotos(photos: photos)
+    func showActivityIndicator() {
+        view?.displaActivityIndicator()
+    }
+    
+    func hideActivityIndicator() {
+        view?.removeActivityIndicator()
+    }
+    
+    func updatePhotosList(photos: [Photo]) {
+        if photos.isEmpty == true {
+            view?.displayNoPhotosMessage(noPhotosMessage)
+        } else {
+            view?.removeNoPhotosMessageLabel()
         }
+        view?.displayPhotos(photos: photos)
     }
     
     func updateError(error: Error) {
