@@ -10,7 +10,7 @@ import UIKit
 class AlbumImageView: UIImageView {
     private let placeHolderImage = #imageLiteral(resourceName: "refresh")
     var requestedImageURLString: String?
-    var animationLayer: CAGradientLayer?
+    weak var animationLayer: CAGradientLayer?
     
     func imageFromServerURL(_ url: URL?, useCache: Bool? = true) {
         self.image = nil
@@ -21,12 +21,7 @@ class AlbumImageView: UIImageView {
             self.image = cachedImage
             return
         }
-        
-        if animationLayer == nil {
-            animationLayer = imageLoadingAnimation()
-            self.layer.mask = animationLayer
-        }
-        
+        addAnimationLayer()
         URLSession.shared.dataTask(with: url, completionHandler: { [weak self] (data, response, error) in
             self?.removeLoadingAnimation()
             if error != nil {
@@ -52,7 +47,7 @@ class AlbumImageView: UIImageView {
     
     private func imageLoadingAnimation() -> CAGradientLayer {
         let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.white.cgColor, UIColor.clear.cgColor]
+        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.lightText.cgColor, UIColor.clear.cgColor]
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 1.0)
         gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
         gradientLayer.locations = [0, 0.5, 1]
@@ -67,10 +62,20 @@ class AlbumImageView: UIImageView {
         return gradientLayer
     }
     
+    private func addAnimationLayer() {
+        DispatchQueue.main.asyncAfter(deadline: .now(), execute: { [weak self] in
+            guard let `self` = self else { return }
+            if self.animationLayer == nil {
+                self.animationLayer = self.imageLoadingAnimation()
+                self.layer.addSublayer(self.animationLayer!)
+            }
+        })
+    }
+    
     private func removeLoadingAnimation() {
-        DispatchQueue.main.async {
-            self.animationLayer?.removeFromSuperlayer()
-            self.animationLayer = nil
-        }
+        DispatchQueue.main.asyncAfter(deadline: .now(), execute: { [weak self] in
+            self?.animationLayer?.removeFromSuperlayer()
+            self?.animationLayer = nil
+        })
     }
 }
