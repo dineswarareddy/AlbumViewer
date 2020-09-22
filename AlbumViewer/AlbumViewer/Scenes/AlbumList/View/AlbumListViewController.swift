@@ -7,17 +7,16 @@
 
 import UIKit
 
-class AlbumListViewController: UIViewController {
+class AlbumListViewController: BaseViewController {
     
     private struct Constants {
         static let albumListCellIdentifier = "AlbumListTableViewCell"
         static let photosSegue = "AlbumPhotosSegue"
     }
-    
+
     var interactor: AlbumListViewInteractorInput?
     @IBOutlet weak var albumListTableView: UITableView?
     @IBOutlet weak var albumSearchBar: UISearchBar?
-    var selectedAlbum: Album?
     private var albumList: [Album] = []
     
     override func viewDidLoad() {
@@ -40,18 +39,52 @@ class AlbumListViewController: UIViewController {
             self?.albumListTableView?.reloadData()
         })
     }
+    
+    private func showNoContentsAvailable(message: String) {
+        let noDataLabel: UILabel = UILabel(frame: self.view.frame)
+        noDataLabel.text = message
+        noDataLabel.textColor = UIColor.gray
+        noDataLabel.font = .boldSystemFont(ofSize: 14)
+        noDataLabel.textAlignment = .center
+        self.albumListTableView?.backgroundView = noDataLabel
+        self.albumListTableView?.backgroundColor = UIColor.white
+    }
+    
+    private func removeNoContentsAvailableLabel() {
+        self.albumListTableView?.backgroundView = nil
+    }
 }
 
 extension AlbumListViewController: AlbumListViewPresenterOutput {
+    func displayNoAlbumsFoundMessage(message: String) {
+        DispatchQueue.main.asyncAfter(deadline: .now(), execute: { [weak self] in
+            self?.showNoContentsAvailable(message: message)
+        })
+    }
+    
+    func removeNoAlbumsMessageLabel() {
+        DispatchQueue.main.asyncAfter(deadline: .now(), execute: { [weak self] in
+            self?.removeNoContentsAvailableLabel()
+        })
+    }
+    
     func displayAlbumList(albums: [Album]) {
         self.displayAlbums(albums: albums)
+    }
+    
+    func displaActivityIndicator() {
+        self.showActivityIndicator()
+    }
+    
+    func removeActivityIndicator() {
+        self.hideActivityIndicator()
     }
 }
 
 extension AlbumListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedAlbum = albumList[indexPath.row]
-        performSegue(withIdentifier: Constants.photosSegue, sender: nil)
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: Constants.photosSegue, sender: albumList[indexPath.row])
     }
 }
 
@@ -72,15 +105,5 @@ extension AlbumListViewController: UITableViewDataSource {
 extension AlbumListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         interactor?.fetchAlbumListContainsText(searchedText: searchText)
-    }
-}
-
-extension AlbumListViewController {
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let photosView = segue.destination as? PhotosListViewController {
-            if let selectedAlbum = selectedAlbum {
-                photosView.selectedAlbum = selectedAlbum
-            }
-        }
     }
 }
