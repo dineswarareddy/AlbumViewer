@@ -198,8 +198,8 @@
 			isa = PBXGroup;
 			children = (
 				7CB25F532515F4FA0053401E /* AlbumList */,
-				7C674686251A320F0092B2C6 /* PhotoPreviewView */,
 				7CE8058C251773A4006F43A1 /* PhotosList */,
+				7C674686251A320F0092B2C6 /* PhotoPreviewView */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
