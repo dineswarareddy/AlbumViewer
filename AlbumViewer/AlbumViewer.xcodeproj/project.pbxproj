@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7C674688251A32430092B2C6 /* PhotoPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C674687251A32420092B2C6 /* PhotoPreviewViewController.swift */; };
+		7C67469B251B26BB0092B2C6 /* AlbumListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67469A251B26BB0092B2C6 /* AlbumListInteractorTests.swift */; };
+		7C6746B0251B513C0092B2C6 /* NetworkUtilitySupporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6746AF251B513C0092B2C6 /* NetworkUtilitySupporter.swift */; };
+		7C6746BB251B51FB0092B2C6 /* NetworkUtilitySupporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6746BA251B51FB0092B2C6 /* NetworkUtilitySupporter.swift */; };
 		7C8CD1A5251A0FC10056CE52 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CD1A4251A0FC10056CE52 /* BaseViewController.swift */; };
 		7CA1A772251640600070B537 /* PListAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA1A771251640600070B537 /* PListAccessor.swift */; };
 		7CA8865E2517B70700CFFEC2 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA8865D2517B70700CFFEC2 /* Photo.swift */; };
@@ -16,7 +19,6 @@
 		7CB25EC42515D45A0053401E /* AlbumListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB25EC32515D45A0053401E /* AlbumListViewController.swift */; };
 		7CB25EC92515D45E0053401E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CB25EC82515D45E0053401E /* Assets.xcassets */; };
 		7CB25ECC2515D45E0053401E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB25ECA2515D45E0053401E /* LaunchScreen.storyboard */; };
-		7CB25ED72515D45E0053401E /* AlbumViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB25ED62515D45E0053401E /* AlbumViewerTests.swift */; };
 		7CB25EE22515D45E0053401E /* AlbumViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB25EE12515D45E0053401E /* AlbumViewerUITests.swift */; };
 		7CB25EFF2515DB570053401E /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB25EFE2515DB570053401E /* APIHandler.swift */; };
 		7CB25F072515E8B00053401E /* AlbumsNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB25F062515E8B00053401E /* AlbumsNetworkController.swift */; };
@@ -62,6 +64,10 @@
 
 /* Begin PBXFileReference section */
 		7C674687251A32420092B2C6 /* PhotoPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreviewViewController.swift; sourceTree = "<group>"; };
+		7C67469A251B26BB0092B2C6 /* AlbumListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListInteractorTests.swift; sourceTree = "<group>"; };
+		7C6746A2251B27830092B2C6 /* AlbumViewerTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AlbumViewerTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		7C6746AF251B513C0092B2C6 /* NetworkUtilitySupporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtilitySupporter.swift; sourceTree = "<group>"; };
+		7C6746BA251B51FB0092B2C6 /* NetworkUtilitySupporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtilitySupporter.swift; sourceTree = "<group>"; };
 		7C8CD1A4251A0FC10056CE52 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		7CA1A771251640600070B537 /* PListAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PListAccessor.swift; sourceTree = "<group>"; };
 		7CA8865D2517B70700CFFEC2 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
@@ -73,7 +79,6 @@
 		7CB25ECB2515D45E0053401E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CB25ECD2515D45E0053401E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CB25ED22515D45E0053401E /* AlbumViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlbumViewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7CB25ED62515D45E0053401E /* AlbumViewerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewerTests.swift; sourceTree = "<group>"; };
 		7CB25ED82515D45E0053401E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CB25EDD2515D45E0053401E /* AlbumViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlbumViewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CB25EE12515D45E0053401E /* AlbumViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewerUITests.swift; sourceTree = "<group>"; };
@@ -136,6 +141,14 @@
 			path = PhotoPreviewView;
 			sourceTree = "<group>";
 		};
+		7C674695251B267C0092B2C6 /* AlbumListTests */ = {
+			isa = PBXGroup;
+			children = (
+				7C67469A251B26BB0092B2C6 /* AlbumListInteractorTests.swift */,
+			);
+			path = AlbumListTests;
+			sourceTree = "<group>";
+		};
 		7CB25EB32515D45A0053401E = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +176,7 @@
 				7CB25EC12515D45A0053401E /* SceneDelegate.swift */,
 				7CB25EF42515D8D00053401E /* Scenes */,
 				7CB25F062515E8B00053401E /* AlbumsNetworkController.swift */,
+				7C6746AF251B513C0092B2C6 /* NetworkUtilitySupporter.swift */,
 				7CB25EF82515D9A00053401E /* Services */,
 				7CB25EF92515D9B30053401E /* Models */,
 				7CB25EFA2515D9C60053401E /* Common */,
@@ -179,7 +193,9 @@
 		7CB25ED52515D45E0053401E /* AlbumViewerTests */ = {
 			isa = PBXGroup;
 			children = (
-				7CB25ED62515D45E0053401E /* AlbumViewerTests.swift */,
+				7C674695251B267C0092B2C6 /* AlbumListTests */,
+				7C6746BA251B51FB0092B2C6 /* NetworkUtilitySupporter.swift */,
+				7C6746A2251B27830092B2C6 /* AlbumViewerTests-Bridging-Header.h */,
 				7CB25ED82515D45E0053401E /* Info.plist */,
 			);
 			path = AlbumViewerTests;
@@ -420,6 +436,7 @@
 					};
 					7CB25ED12515D45E0053401E = {
 						CreatedOnToolsVersion = 12.0;
+						LastSwiftMigration = 1200;
 						TestTargetID = 7CB25EBB2515D45A0053401E;
 					};
 					7CB25EDC2515D45E0053401E = {
@@ -490,6 +507,7 @@
 				7C8CD1A5251A0FC10056CE52 /* BaseViewController.swift in Sources */,
 				7CB25F0F2515E9320053401E /* ImageCache.swift in Sources */,
 				7CA8865E2517B70700CFFEC2 /* Photo.swift in Sources */,
+				7C6746B0251B513C0092B2C6 /* NetworkUtilitySupporter.swift in Sources */,
 				7CE805BD2517914A006F43A1 /* PhotoCollectionViewCell.swift in Sources */,
 				7CE805A4251790B6006F43A1 /* PhotosListRouter.swift in Sources */,
 				7CB25F76251612510053401E /* AlbumListViewPresenter.swift in Sources */,
@@ -516,7 +534,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CB25ED72515D45E0053401E /* AlbumViewerTests.swift in Sources */,
+				7C67469B251B26BB0092B2C6 /* AlbumListInteractorTests.swift in Sources */,
+				7C6746BB251B51FB0092B2C6 /* NetworkUtilitySupporter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -712,6 +731,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = AlbumViewerTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -722,6 +742,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dineshreddy.AlbumViewerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AlbumViewerTests/AlbumViewerTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AlbumViewer.app/AlbumViewer";
@@ -733,6 +755,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = AlbumViewerTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -743,6 +766,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dineshreddy.AlbumViewerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AlbumViewerTests/AlbumViewerTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AlbumViewer.app/AlbumViewer";
