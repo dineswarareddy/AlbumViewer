@@ -12,74 +12,63 @@ protocol AlbumsNetworkDelegate {
     func fetchPhotos(of albumId: Int, completionHandler: @escaping(Result<[Photo], Error>) -> (Void))
 }
 
-class AlbumsNetworkController {
-    enum RequestType {
-        case album
-        case photos
-        var requestPathComponent: String {
-            switch self {
-            case .album:
-                return "users/1/albums"
-            case .photos:
-                return "albums/%@/photos"
+final class AlbumsNetworkController {
+    private let networkUtility: AlbumsNetworkUtilities
+    init(networkUtility: AlbumsNetworkUtilities) {
+        self.networkUtility = networkUtility
+    }
+    
+    private func initiateAlbumListAPICall(requestURL: URL, completionHandler: @escaping(Result<[Album], Error>) -> (Void)) {
+        APIHandler.initiateAPICall(requestURL: requestURL) { [weak self] (response) -> (Void) in
+            switch response {
+            case .success(let responseData):
+                do {
+                    if let albums: [Album] = try self?.networkUtility.prepareModelFromData(responseData) {
+                        completionHandler(.success(albums))
+                    }
+                }
+                catch let jsonError {
+                    completionHandler(.failure(jsonError)) }
+            case .failure(let error):
+                completionHandler(.failure(error))
             }
         }
     }
     
-    private func prepareModelFromData<T: Decodable>(_ responseData: Data) throws -> T {
-        return try JSONDecoder().decode(T.self, from: responseData)
-    }
-    
-    private func constructAlbumListURL(requestType: RequestType, dynamicPathComponent:[String]?) -> URL? {
-        var pathComponent = requestType.requestPathComponent
-        if let pathVariables = dynamicPathComponent {
-            pathComponent = pathComponent.insert(pathVariables)
-        }
-        if let baseURL: String = PListAccessor.getBaseURL() {
-            return URL(string: "\(baseURL)\(pathComponent)")
-        }
-        return nil
+    private func initiatePhotosListAPICall(requestURL: URL, completionHandler: @escaping(Result<[Photo], Error>) -> (Void)) {
+        APIHandler.initiateAPICall(requestURL: requestURL, completion: { [weak self] (response) -> (Void) in
+            switch response {
+            case .success(let responseData):
+                do {
+                    if let photos: [Photo] = try self?.networkUtility.prepareModelFromData(responseData) {
+                        completionHandler(.success(photos))
+                    }
+                }
+                catch let jsonError {
+                    completionHandler(.failure(jsonError)) }
+            case .failure(let error):
+                completionHandler(.failure(error))
+                break
+            }
+        })
     }
 }
 
 extension AlbumsNetworkController: AlbumsNetworkDelegate {
     func fetchAlbums(completionHandler: @escaping(Result<[Album], Error>) -> (Void)) {
-        if let requestURL = constructAlbumListURL(requestType: .album, dynamicPathComponent: nil) {
-            APIHandler.initiateAPICall(requestURL: requestURL) { [weak self] (response) -> (Void) in
-                switch response {
-                case .success(let responseData):
-                    do {
-                        if let albums: [Album] = try self?.prepareModelFromData(responseData) {
-                            completionHandler(.success(albums))
-                        }
-                    }
-                    catch let jsonError {
-                        completionHandler(.failure(jsonError)) }
-                case .failure(let error):
-                    completionHandler(.failure(error))
-                }
+        if let requestURL = networkUtility.constructRequestBasedURL(dynamicPathComponent: nil) {
+            initiateAlbumListAPICall(requestURL: requestURL) { (response) -> (Void) in
+                completionHandler(response)
             }
         }
     }
     
     func fetchPhotos(of albumId: Int, completionHandler: @escaping(Result<[Photo], Error>) -> (Void)) {
         let albumIdString = String(albumId)
-        if let requestURL = constructAlbumListURL(requestType: .photos, dynamicPathComponent: [albumIdString]) {
-            APIHandler.initiateAPICall(requestURL: requestURL, completion: { [weak self] (response) -> (Void) in
-                switch response {
-                case .success(let responseData):
-                    do {
-                        if let photos: [Photo] = try self?.prepareModelFromData(responseData) {
-                            completionHandler(.success(photos))
-                        }
-                    }
-                    catch let jsonError {
-                        completionHandler(.failure(jsonError)) }
-                case .failure(let error):
-                    completionHandler(.failure(error))
-                    break
-                }
-            })
+        if let requestURL = networkUtility.constructRequestBasedURL(dynamicPathComponent: [albumIdString]) {
+            initiatePhotosListAPICall(requestURL: requestURL) { (response) -> (Void) in
+                completionHandler(response)
+            }
         }
     }
 }
