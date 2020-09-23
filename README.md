@@ -7,5 +7,7 @@ open AlbumViewer.xcodeproj
 Run the application
 # What to expect:
 User can see list of albums after launching the app and downloaded data from API.
+
 On tapping specific album user can see list of photos associated to that album.
+
 On tapping photo thumbnail, A new page will open to preview selected photo.
