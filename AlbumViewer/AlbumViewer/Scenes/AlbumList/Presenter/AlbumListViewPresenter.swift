@@ -20,6 +20,10 @@ class AlbumListViewPresenter {
 }
 
 extension AlbumListViewPresenter: AlbumListViewInteractorOutput {
+    func updateError(error: Error) {
+        view?.displayError(error: error)
+    }
+    
     func showActivityIndicator() {
         view?.displaActivityIndicator()
     }

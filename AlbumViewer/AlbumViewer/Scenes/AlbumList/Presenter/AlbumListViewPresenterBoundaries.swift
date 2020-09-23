@@ -13,4 +13,5 @@ protocol AlbumListViewPresenterOutput {
     func removeNoAlbumsMessageLabel()
     func displaActivityIndicator()
     func removeActivityIndicator()
+    func displayError(error: Error)
 }

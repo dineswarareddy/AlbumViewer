@@ -56,6 +56,10 @@ class AlbumListViewController: BaseViewController {
 }
 
 extension AlbumListViewController: AlbumListViewPresenterOutput {
+    func displayError(error: Error) {
+        // Write logic to show error message here.
+    }
+    
     func displayNoAlbumsFoundMessage(message: String) {
         DispatchQueue.main.asyncAfter(deadline: .now(), execute: { [weak self] in
             self?.showNoContentsAvailable(message: message)

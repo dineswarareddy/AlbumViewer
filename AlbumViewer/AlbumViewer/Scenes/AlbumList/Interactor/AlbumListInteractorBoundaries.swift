@@ -19,4 +19,5 @@ protocol AlbumListViewInteractorOutput {
     func displayAlbumDetails(dataToPass: Any?, segue: UIStoryboardSegue?)
     func showActivityIndicator()
     func hideActivityIndicator()
+    func updateError(error: Error)
 }
