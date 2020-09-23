@@ -8,7 +8,7 @@
 import Foundation
 
 final class APIHandler {
-    typealias ServiceCallBack = (_ response: Any?, _ error: Error?) -> (Void)
+    typealias ServiceCallBack = (Result<Data, Error>) -> (Void)
 
     private struct RequestConstants {
         static let timeoutInterval = 180
@@ -22,11 +22,11 @@ final class APIHandler {
         let dataSession = URLSession(configuration: .default)
         dataSession.dataTask(with: channelsDataRequest,
                              completionHandler: { (data, response, error) in
-                                guard let data = data else {
-                                    completion(nil, error)
+                                if let error = error {
+                                    completion(.failure(error))
                                     return
                                 }
-                                completion(data, nil)
+                                completion(.success(data!))
         }).resume()
     }
 }

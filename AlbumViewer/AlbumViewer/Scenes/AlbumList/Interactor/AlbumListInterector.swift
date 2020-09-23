@@ -32,11 +32,14 @@ extension AlbumListInteractor: AlbumListViewInteractorInput {
     
     func fetchAlbumList() {
         output.showActivityIndicator()
-        network?.fetchAlbums(completionHandler: { [weak self] (albumList, error) -> (Void) in
+        network?.fetchAlbums(completionHandler: { [weak self] (response) -> (Void) in
             self?.output.hideActivityIndicator()
-            if let albums = albumList {
+            switch response{
+            case .success(let albums):
                 self?.albumsArray = albums
                 self?.updateAlbumListToPresent(albumList: albums)
+            case .failure(let error):
+                self?.output.updateError(error: error)
             }
         })
     }

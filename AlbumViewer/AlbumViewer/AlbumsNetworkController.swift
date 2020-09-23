@@ -8,8 +8,8 @@
 import Foundation
 
 protocol AlbumsNetworkDelegate {
-    func fetchAlbums(completionHandler: @escaping(_ albums: [Album]?, _ error: Error?) -> (Void))
-    func fetchPhotos(of albumId: Int, completionHandler: @escaping(_ albums: [Photo]?, _ error: Error?) -> (Void))
+    func fetchAlbums(completionHandler: @escaping(Result<[Album], Error>) -> (Void))
+    func fetchPhotos(of albumId: Int, completionHandler: @escaping(Result<[Photo], Error>) -> (Void))
 }
 
 class AlbumsNetworkController {
@@ -43,42 +43,44 @@ class AlbumsNetworkController {
 }
 
 extension AlbumsNetworkController: AlbumsNetworkDelegate {
-    func fetchAlbums(completionHandler: @escaping(_ albums: [Album]?, _ error: Error?) -> (Void)) {
+    func fetchAlbums(completionHandler: @escaping(Result<[Album], Error>) -> (Void)) {
         if let requestURL = constructAlbumListURL(requestType: .album, dynamicPathComponent: nil) {
-            APIHandler.initiateAPICall(requestURL: requestURL, completion: { [weak self] (responseData, error) -> (Void) in
-                if let responseData = responseData as? Data {
+            APIHandler.initiateAPICall(requestURL: requestURL) { [weak self] (response) -> (Void) in
+                switch response {
+                case .success(let responseData):
                     do {
                         if let albums: [Album] = try self?.prepareModelFromData(responseData) {
-                            completionHandler(albums, nil)
+                            completionHandler(.success(albums))
                         }
                     }
-                    catch let error {
-                        print(error)
-                        completionHandler(nil, error) }
-                } else {
-                    completionHandler(nil, error)
+                    catch let jsonError {
+                        completionHandler(.failure(jsonError)) }
+                case .failure(let error):
+                    completionHandler(.failure(error))
                 }
-            })
+            }
         }
     }
     
-    func fetchPhotos(of albumId: Int, completionHandler: @escaping(_ albums: [Photo]?, _ error: Error?) -> (Void)) {
+    func fetchPhotos(of albumId: Int, completionHandler: @escaping(Result<[Photo], Error>) -> (Void)) {
         let albumIdString = String(albumId)
         if let requestURL = constructAlbumListURL(requestType: .photos, dynamicPathComponent: [albumIdString]) {
-            APIHandler.initiateAPICall(requestURL: requestURL, completion: { [weak self] (responseData, error) -> (Void) in
-                if let responseData = responseData as? Data {
+            APIHandler.initiateAPICall(requestURL: requestURL, completion: { [weak self] (response) -> (Void) in
+                switch response {
+                case .success(let responseData):
                     do {
                         if let photos: [Photo] = try self?.prepareModelFromData(responseData) {
-                            completionHandler(photos, nil)
+                            completionHandler(.success(photos))
                         }
                     }
-                    catch let error {
-                        print(error)
-                        completionHandler(nil, error) }
-                } else {
-                    completionHandler(nil, error)
+                    catch let jsonError {
+                        completionHandler(.failure(jsonError)) }
+                case .failure(let error):
+                    completionHandler(.failure(error))
+                    break
                 }
             })
         }
     }
 }
+
