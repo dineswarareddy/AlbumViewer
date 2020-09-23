@@ -10,7 +10,7 @@ import UIKit
 
 enum AlbumListViewFactory {
     static func createAlbumsViewFactory(view: AlbumListViewPresenterOutput?) -> AlbumListViewInteractorInput {
-        let networkController = AlbumsNetworkController()
+        let networkController = AlbumsNetworkController(networkUtility: NetworkUtilitySupporter(requestType: .album))
         let presenter = AlbumListViewPresenter(view: view)
         let interactor = AlbumListInteractor(presenter: presenter, networkController: networkController)
         let router = AlbumListRouter()

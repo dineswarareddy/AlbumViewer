@@ -10,7 +10,7 @@ import UIKit
 
 enum PhotosListViewFactory {
     static func createPhotosViewFactory(view: PhotosListPresenterOutput?) -> PhotosListInteractorInput {
-        let networkController = AlbumsNetworkController()
+        let networkController = AlbumsNetworkController(networkUtility: NetworkUtilitySupporter(requestType: .photos))
         let presenter = PhotosListPresenter(view: view)
         let interactor = PhotosListInteractor(presenter: presenter, networkController: networkController)
         let router = PhotosListRouter()
